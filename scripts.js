@@ -4,93 +4,117 @@ window.mobileAndTabletCheck = function() {
   return check;
 };
 
-window.addEventListener('load', () => {
-  if (mobileAndTabletCheck()) {
-    wavify([
-      {
-        element: document.querySelector('#myId1'),
-        pattern: document.getElementById('imagePattern-1'),
-        bones: 5,
-        amplitude: 20,
-        speed: .6,
-        defaultFill: '#ffc6ff'
-      },
-      {
-        element: document.querySelector('#myId2'),
-        pattern: document.getElementById('imagePattern-2'),
-        bones: 3,
-        amplitude: 20,
-        speed: .4,
-        defaultFill: '#bdb2ff'
-      },
-      {
-        element: document.querySelector('#myId3'),
-        pattern: document.getElementById('imagePattern-3'),
-        bones: 5,
-        amplitude: 50,
-        speed: .5,
-        defaultFill: '#a0c4ff'
-      },
-      {
-        element: document.querySelector('#myId4'),
-        pattern: document.getElementById('imagePattern-4'),
-        bones: 20,
-        amplitude: 15,
-        speed: .77,
-        defaultFill: '#9bf6ff'
-      },
-      {
-        element: document.querySelector('#myId5'),
-        pattern: document.getElementById('imagePattern-5'),
-        bones: 2,
-        amplitude: 60,
-        speed: .5,
-        defaultFill: '#caffbf'
-      }
-    ]);
-  } else {
-    wavify([
-      {
-        element: document.querySelector('#myId1'),
-        pattern: document.getElementById('imagePattern-1'),
-        bones: 12,
-        amplitude: 20,
-        speed: .6,
-        defaultFill: '#ffc6ff'
-      },
-      {
-        element: document.querySelector('#myId2'),
-        pattern: document.getElementById('imagePattern-2'),
-        bones: 3,
-        amplitude: 20,
-        speed: .4,
-        defaultFill: '#bdb2ff'
-      },
-      {
-        element: document.querySelector('#myId3'),
-        pattern: document.getElementById('imagePattern-3'),
-        bones: 5,
-        amplitude: 50,
-        speed: .5,
-        defaultFill: '#a0c4ff'
-      },
-      {
-        element: document.querySelector('#myId4'),
-        pattern: document.getElementById('imagePattern-4'),
-        bones: 66,
-        amplitude: 15,
-        speed: .77,
-        defaultFill: '#9bf6ff'
-      },
-      {
-        element: document.querySelector('#myId5'),
-        pattern: document.getElementById('imagePattern-5'),
-        bones: 6,
-        amplitude: 60,
-        speed: .5,
-        defaultFill: '#caffbf'
-      }
-    ]);
+function getRandomInt(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min)) + min;
+}
+
+const colorPatterns = [
+  ['#ffc6ff', '#bdb2ff', '#a0c4ff', '#9bf6ff', '#caffbf'],
+  ['#cdb4db', '#ffc8dd', '#a2d2ff', '#bde0fe', '#ffafcc'],
+  ['#7bdff2', '#b2f7ef', '#f2b5d4', '#f7d6e0', '#eff7f6'],
+  ['#ffffbf', '#a9d1f7', '#cc99ff', '#ffdfbe', '#ffb1b0'],
+  ['#b5179e', '#560bad', '#3a0ca3', '#4361ee', '#4cc9f0']
+
+]
+
+const element1 = document.querySelector('#myId1');
+const pattern1 = document.querySelector('#imagePattern-1');
+const rect1 = document.querySelector('#rect1');
+
+const element2 = document.querySelector('#myId2');
+const pattern2 = document.querySelector('#imagePattern-2');
+const rect2 = document.querySelector('#rect2');
+
+const element3 = document.querySelector('#myId3');
+const pattern3 = document.querySelector('#imagePattern-3');
+const rect3 = document.querySelector('#rect3');
+
+const element4 = document.querySelector('#myId4');
+const pattern4 = document.querySelector('#imagePattern-4');
+const rect4 = document.querySelector('#rect4');
+
+const element5 = document.querySelector('#myId5');
+const pattern5 = document.querySelector('#imagePattern-5');
+const rect5 = document.querySelector('#rect5');
+
+const svgElements = [
+  {
+    element: element1,
+    pattern: pattern1
+  },
+  {
+    element: element2,
+    pattern: pattern2
+  },
+  {
+    element: element3,
+    pattern: pattern3
+  },
+  {
+    element: element4,
+    pattern: pattern4
+  },
+  {
+    element: element5,
+    pattern: pattern5
+  },
+]
+
+const rects = [
+  rect1, rect2, rect3, rect4, rect5
+]
+
+const generateBones = (isMobile) => {
+  if (isMobile) {
+    return [ 5, 3, 5, 20, 2 ];
   }
+
+  return [ 12, 3, 5, 66, 6 ];
+}
+
+const amplitudes = [
+  20, 20, 50, 15, 60
+];
+
+
+const speeds = [
+  .6, .4, .5, .77, .5
+];
+
+const generateWavifyCollection = (
+  waveElements,
+  bones,
+  amplitudes,
+  speeds
+) => {
+  const wavifyCollection = [];
+
+  for(let i = 0; i < 5; i++) {
+    rects[i].setAttribute('fill', colorPatterns[getRandomInt(0, 4)][i])
+
+    wavifyCollection.push(
+      {
+        ...waveElements[i],
+        bones: bones[i],
+        amplitude: amplitudes[i],
+        speed: speeds[i]
+      }
+    )
+  }
+
+  return wavifyCollection;
+};
+
+window.addEventListener('load', () => {
+  const wavifyCollection = generateWavifyCollection(
+    svgElements,
+    generateBones(mobileAndTabletCheck()),
+    amplitudes,
+    speeds
+  );
+
+  wavify(wavifyCollection)
 });
 

@@ -39,7 +39,10 @@ function wavify(waveElements) {
       var sinSeed = (factor + (i + (i % settings.bones))) * settings.speed * 100;
       var sinHeight = Math.sin(sinSeed / 100) * settings.amplitude;
       var yPos = Math.sin(sinSeed / 100) * sinHeight;
-      points.push({ x: x, y: ((index+1) * height) - yPos, whatevs: Math.sin(sinSeed / 50) * sinHeight });
+      points.push({ 
+        x: x, 
+        y: ((index+1) * height) - yPos 
+      });
     }
 
     return points;
