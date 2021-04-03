@@ -24,7 +24,8 @@ function addEventListeners(waveElements) {
 
 function wavify(waveElements) {
   let width = document.querySelector(CONTAINER).getBoundingClientRect().width,
-    height = document.querySelector(CONTAINER).getBoundingClientRect().height / 5,
+    // height = document.querySelector(CONTAINER).getBoundingClientRect().height / 6
+    height = 200,
     lastUpdate,
     totalTime = 0,
     animationInstance = false;
@@ -174,7 +175,7 @@ function wavify(waveElements) {
     totalTime = 0;
     width = document.querySelector(CONTAINER).getBoundingClientRect()
       .width;
-    height = 150;
+    height = 200;
     lastUpdate = false;
     play();
   }, 0);
