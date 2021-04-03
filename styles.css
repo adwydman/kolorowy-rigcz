@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  /* background-color: #6c757d; */
+  background-color: #fffffc;
+}
+
+#myId1 {
+  background-color: #6c757d;
+}
+
+.product {
+  position:relative;
+  width: 100%;
+  cursor: pointer;
+}
+
+.shop-item {
+  height: 100%;
+}
+
+.shop-item2 {
+  height: 200px;
+}
+
+nav {
+  height: 4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.product-rect {
+  transition: fill-opacity .2s ease-in-out;
+}
