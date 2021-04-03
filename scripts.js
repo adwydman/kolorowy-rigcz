@@ -116,5 +116,7 @@ window.addEventListener('load', () => {
   );
 
   wavify(wavifyCollection)
+
+  document.querySelector('main').classList.add('fade-in')
 });
 

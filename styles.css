@@ -5,26 +5,13 @@
 
 body {
   height: 100%;
-  /* background-color: #6c757d; */
   background-color: #fffffc;
-}
-
-#myId1 {
-  background-color: #6c757d;
 }
 
 .product {
   position:relative;
   width: 100%;
   cursor: pointer;
-}
-
-.shop-item {
-  height: 100%;
-}
-
-.shop-item2 {
-  height: 200px;
 }
 
 nav {
@@ -35,4 +22,13 @@ nav {
 
 .product-rect {
   transition: fill-opacity .2s ease-in-out;
+}
+
+main {
+  opacity: 0;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity .25s ease-in;
 }
