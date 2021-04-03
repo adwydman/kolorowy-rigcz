@@ -4,93 +4,93 @@ window.mobileAndTabletCheck = function() {
   return check;
 };
 
-if (mobileAndTabletCheck()) {
-  wavify([
-    {
-      element: document.querySelector('#myId1'),
-      pattern: document.getElementById('imagePattern-1'),
-      bones: 5,
-      amplitude: 20,
-      speed: .6,
-      defaultFill: '#ffc6ff'
-    },
-    {
-      element: document.querySelector('#myId2'),
-      pattern: document.getElementById('imagePattern-2'),
-      bones: 3,
-      amplitude: 20,
-      speed: .4,
-      defaultFill: '#bdb2ff'
-    },
-    {
-      element: document.querySelector('#myId3'),
-      pattern: document.getElementById('imagePattern-3'),
-      bones: 5,
-      amplitude: 50,
-      speed: .5,
-      defaultFill: '#a0c4ff'
-    },
-    {
-      element: document.querySelector('#myId4'),
-      pattern: document.getElementById('imagePattern-4'),
-      bones: 20,
-      amplitude: 15,
-      speed: .77,
-      defaultFill: '#9bf6ff'
-    },
-    {
-      element: document.querySelector('#myId5'),
-      pattern: document.getElementById('imagePattern-5'),
-      bones: 2,
-      amplitude: 60,
-      speed: .5,
-      defaultFill: '#caffbf'
-    }
-  ]);
-} else {
-  wavify([
-    {
-      element: document.querySelector('#myId1'),
-      pattern: document.getElementById('imagePattern-1'),
-      bones: 12,
-      amplitude: 20,
-      speed: .6,
-      defaultFill: '#ffc6ff'
-    },
-    {
-      element: document.querySelector('#myId2'),
-      pattern: document.getElementById('imagePattern-2'),
-      bones: 3,
-      amplitude: 20,
-      speed: .4,
-      defaultFill: '#bdb2ff'
-    },
-    {
-      element: document.querySelector('#myId3'),
-      pattern: document.getElementById('imagePattern-3'),
-      bones: 5,
-      amplitude: 50,
-      speed: .5,
-      defaultFill: '#a0c4ff'
-    },
-    {
-      element: document.querySelector('#myId4'),
-      pattern: document.getElementById('imagePattern-4'),
-      bones: 66,
-      amplitude: 15,
-      speed: .77,
-      defaultFill: '#9bf6ff'
-    },
-    {
-      element: document.querySelector('#myId5'),
-      pattern: document.getElementById('imagePattern-5'),
-      bones: 6,
-      amplitude: 60,
-      speed: .5,
-      defaultFill: '#caffbf'
-    }
-  ]);
-}
-
-
+window.addEventListener('load', () => {
+  if (mobileAndTabletCheck()) {
+    wavify([
+      {
+        element: document.querySelector('#myId1'),
+        pattern: document.getElementById('imagePattern-1'),
+        bones: 5,
+        amplitude: 20,
+        speed: .6,
+        defaultFill: '#ffc6ff'
+      },
+      {
+        element: document.querySelector('#myId2'),
+        pattern: document.getElementById('imagePattern-2'),
+        bones: 3,
+        amplitude: 20,
+        speed: .4,
+        defaultFill: '#bdb2ff'
+      },
+      {
+        element: document.querySelector('#myId3'),
+        pattern: document.getElementById('imagePattern-3'),
+        bones: 5,
+        amplitude: 50,
+        speed: .5,
+        defaultFill: '#a0c4ff'
+      },
+      {
+        element: document.querySelector('#myId4'),
+        pattern: document.getElementById('imagePattern-4'),
+        bones: 20,
+        amplitude: 15,
+        speed: .77,
+        defaultFill: '#9bf6ff'
+      },
+      {
+        element: document.querySelector('#myId5'),
+        pattern: document.getElementById('imagePattern-5'),
+        bones: 2,
+        amplitude: 60,
+        speed: .5,
+        defaultFill: '#caffbf'
+      }
+    ]);
+  } else {
+    wavify([
+      {
+        element: document.querySelector('#myId1'),
+        pattern: document.getElementById('imagePattern-1'),
+        bones: 12,
+        amplitude: 20,
+        speed: .6,
+        defaultFill: '#ffc6ff'
+      },
+      {
+        element: document.querySelector('#myId2'),
+        pattern: document.getElementById('imagePattern-2'),
+        bones: 3,
+        amplitude: 20,
+        speed: .4,
+        defaultFill: '#bdb2ff'
+      },
+      {
+        element: document.querySelector('#myId3'),
+        pattern: document.getElementById('imagePattern-3'),
+        bones: 5,
+        amplitude: 50,
+        speed: .5,
+        defaultFill: '#a0c4ff'
+      },
+      {
+        element: document.querySelector('#myId4'),
+        pattern: document.getElementById('imagePattern-4'),
+        bones: 66,
+        amplitude: 15,
+        speed: .77,
+        defaultFill: '#9bf6ff'
+      },
+      {
+        element: document.querySelector('#myId5'),
+        pattern: document.getElementById('imagePattern-5'),
+        bones: 6,
+        amplitude: 60,
+        speed: .5,
+        defaultFill: '#caffbf'
+      }
+    ]);
+  }
+});
 
